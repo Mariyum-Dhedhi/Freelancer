@@ -1,0 +1,46 @@
+start apache
+start sql
+open localhost
+phpdomain
+explore in xampp
+htdocs > Freelancer > config
+
+
+https://gitlab.com/Daniyal_Nawaz/blogapp/-/blob/main/server/php_mysql/BlogApp/service.php
+
+postman
+ipconfig in command prompt
+ipv4 address in change localhost
+
+body: {"action":"REGISTER_USER", "userName":"Mr. Ahmed"}
+
+fun onLoginClicked(view: View) {
+        val email = et_email.text.toString().trim()
+        val password = et_password.text.toString().trim()
+
+        if(email.isEmpty()){
+            //showMessageOnUI("Please Enter Email Address")
+            showError("Please Enter Email Address")
+            return
+        }
+        if(password.isEmpty()){
+            //showMessageOnUI("Please Enter Password")
+            showError("Please Enter Password")
+            return
+        }
+        else {
+            hideError()
+            //showError("No Validation Error")
+
+            //showMessageOnUI("Email: "+ email + "\nPassword: " + password)
+            //val user = User(password = password, email = email)
+            val user = NewUser(password = password, email = email)
+
+            val intent = Intent(this, HomeActivity::class.java)
+            //intent.putExtra("email", email)
+            //intent.putExtra("password",password)
+            //intent.putExtra("user",user)
+            DataHolder.user = user
+
+            startActivity(intent)
+        }

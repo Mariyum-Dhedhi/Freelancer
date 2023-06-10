@@ -1,0 +1,23 @@
+CREATE TABLE user(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100) not null,
+    address varchar(200),
+    mobile_number int,
+    email_address varchar(100),
+    date_time datetime DEFAULT now()
+)
+
+CREATE TABLE project(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    project_title varchar(100) not null,
+    description varchar(500) not null,
+    mobile_number int not null,
+    email_address varchar(100) not null,
+    category varchar(100) not null,
+    budget int not null,
+    deadline date not null,
+    status varchar(100) not null,
+    date_time datetime DEFAULT now(),
+    user_id int not null,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+)
